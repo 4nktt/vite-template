@@ -16,6 +16,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@eslint/js": "^9.11.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint__js": "^8.42.3",
@@ -44,5 +46,10 @@
       "prettier --write"
     ],
     "*.{md,html,css,json}": "prettier --write"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
