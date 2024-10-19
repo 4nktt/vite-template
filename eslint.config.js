@@ -27,7 +27,16 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    settings: { react: { version: "detect" } },
+    settings: {
+      react: { version: "detect" },
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+          project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        },
+        node: true,
+      },
+    },
     plugins: {
       import: importPlugin,
       react,
