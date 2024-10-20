@@ -6,6 +6,7 @@ import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tailwind from "eslint-plugin-tailwindcss";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -16,6 +17,7 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.strictTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
+      ...tailwind.configs["flat/recommended"],
       eslintConfigPrettier,
     ],
     files: ["**/*.{ts,tsx}"],
