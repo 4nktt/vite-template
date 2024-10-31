@@ -1,12 +1,15 @@
 import js from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import checkFile from "eslint-plugin-check-file";
 import importPlugin from "eslint-plugin-import";
+import jestDOM from "eslint-plugin-jest-dom";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tailwind from "eslint-plugin-tailwindcss";
+import testingLibrary from "eslint-plugin-testing-library";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -46,6 +49,9 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
       "jsx-a11y": jsxA11y,
       "check-file": checkFile,
+      "testing-library": testingLibrary,
+      "jest-dom": jestDOM,
+      vitest,
     },
     rules: {
       ...importPlugin.configs.recommended.rules,
@@ -58,6 +64,9 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       ...jsxA11y.configs.recommended.rules,
+      ...testingLibrary.configs["flat/react"].rules,
+      ...jestDOM.configs["flat/recommended"].rules,
+      ...vitest.configs.recommended.rules,
       "prefer-arrow-callback": ["error"],
       "prefer-template": ["error"],
       semi: ["error"],

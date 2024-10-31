@@ -53,10 +53,10 @@ export function GridPattern({
       <rect width="100%" height="100%" strokeWidth={0} fill={`url(#${id})`} />
       {squares && (
         <svg x={x} y={y} className="overflow-visible">
-          {squares.map(([x, y]) => (
+          {squares.map(([x, y], i) => (
             <rect
               strokeWidth="0"
-              key={`${String(x)}-${String(y)}`}
+              key={`${String(x)}-${String(y)}-${String(i)}`}
               width={width - 1}
               height={height - 1}
               x={x * width + 1}
