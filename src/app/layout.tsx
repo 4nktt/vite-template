@@ -1,7 +1,9 @@
+import { Outlet } from "react-router-dom";
+
 import GridPattern from "@/components/ui/grid-pattern";
 import { cn } from "@/lib/utils";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <main className="relative grow overflow-hidden">
       <GridPattern
@@ -24,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           "inset-x-0 inset-y-0 h-[100%] skew-y-12"
         )}
       />
-      {children}
+      {children ?? <Outlet />}
     </main>
   );
 }
